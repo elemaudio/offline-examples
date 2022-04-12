@@ -11,13 +11,19 @@ import { el } from '@elemaudio/core';
 // Parsing our input arguments
 const argv = minimist(process.argv.slice(2));
 const [inFile, outFile] = argv._;
-const {azim = 0, elev = 0, order = 1} = argv;
+const {azim = 0, elev = 0, order = 1, norm = "n3d"} = argv;
 
 // Preparing our wav file assets
 const inputWav = new wavefile.WaveFile(readFileSync(inFile));
 const outputWav = new wavefile.WaveFile();
 
-console.log(`Encoding HOA output file with azim: ${azim}, elev: ${elev}, order: ${order}`);
+if (norm !== "n3d" && norm !== "sn3d") {
+  console.error(`Unknown normalization mode ${norm}, please choose either "n3d" or "sn3d"`);
+  process.exit(1);
+}
+
+console.log(`Encoding HOA output file with azim: ${azim}, elev: ${elev}, order: ${order}, norm: ${norm}`);
+
 
 // This function encodes a mono point source with a given azimuth and
 // elevation into an Nth order HOA channel array.
@@ -31,7 +37,15 @@ function ambipan(order, azim, elev, xn) {
   ]);
 
   return gains.map(function(g, i) {
-    return el.mul(el.sm(el.const({key: `g${i}`, value: g[0]})), xn);
+    let gain = g[0];
+
+    // By default, the spherical harmonic transform library here yields coefficients
+    // normalized in N3D. If the user asking for SN3D we convert here.
+    if (norm === "sn3d") {
+      gain = gain / Math.sqrt(2 * i + 1);
+    }
+
+    return el.mul(el.sm(el.const({key: `g${i}`, value: gain})), xn);
   });
 }
 

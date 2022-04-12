@@ -1,15 +1,20 @@
 # HOA Encoder
 
-A simple command line utility for encoding a mono sound file into higher order ambisonics (HOA) with
-a provided azimuth, elevation, and order.
+A simple command line utility for encoding a mono sound file into higher order ambisonics (HOA), with ACN
+channel ordering and N3D or SN3D normalization at the provided azimuth, elevation, and order.
 
 ## Usage
 
 First make sure you've installed the dependencies in the parent directory above this example.
 
 ```bash
-node index.js <input_file> <output_file> [--azim=<degrees>] [--elev=<degrees>] [--order=<integer>]
+node index.js <input_file> <output_file> [--azim=<degrees>] [--elev=<degrees>] [--order=<integer>] [--norm=<string>]
 ```
+
+* `--azim`: the desired azimuth, in degrees
+* `--elev`: the desired elevation, in degrees
+* `--order`: ambisonics order
+* `--norm`: Either `"sn3d"` or `"n3d"` (default)
 
 ## Example
 
