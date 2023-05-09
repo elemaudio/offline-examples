@@ -9,8 +9,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@elemaudio/core": "^1.0.0",
-    "@elemaudio/offline-renderer": "^1.0.1",
+    "@elemaudio/core": "^2.0.0",
+    "@elemaudio/offline-renderer": "^2.0.0",
     "minimist": "^1.2.6",
     "spherical-harmonic-transform": "^0.1.1",
     "wavefile": "^11.0.0"
