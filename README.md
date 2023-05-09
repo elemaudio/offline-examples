@@ -1,12 +1,16 @@
-# Elementary Audio Offline Rendering Examples
+# Offline Rendering Examples
 
-This repository holds a set of small examples using Elementary in Node.js to process
+This repository holds a set of small examples using Elementary Audio in Node.js to process
 audio files. Each subdirectory contains a self-contained script to execute and a README
 explaining what the process does and how to use it from your command line.
 
-**Note**: Offline rendering is only available in the `@elemaudio/offline-renderer` package hosted in
-the Elementary private npm registry. This feature is available only to paid license holders.
-Please see [https://www.elementary.audio/pricing](https://www.elementary.audio/pricing) for license purchases.
+If you're new to Elementary Audio, [**Elementary**](https://elementary.audio) is a JavaScript/C++ library for building audio applications.
+
+* **Declarative:** Elementary makes it simple to create interactive audio processes through functional, declarative programming. Describe your audio process as a function of your application state, and Elementary will efficiently update the underlying audio engine as necessary.
+* **Dynamic:** Most audio processing frameworks and tools facilitate building static processes. But what happens as your audio requirements change throughout the user journey? Elementary is designed to facilitate and adapt to the dynamic nature of modern audio applications.
+* **Portable:** By decoupling the JavaScript API from the underlying audio engine (the "what" from the "how"), Elementary enables writing portable applications. Whether the underlying engine is running in the browser, an audio plugin, or an embedded device, the JavaScript layer remains the same.
+
+Find more in the [Elementary repository on GitHub](https://github.com/elemaudio/elementary) and the documentation [on the website](https://elementary.audio/).
 
 ## Examples
 
@@ -15,22 +19,8 @@ directory to fetch the necessary dependencies.
 
 * [HOA Encoder](https://github.com/elemaudio/offline-examples/tree/master/hoa-encoder)
 * [Multi-Channel Convolver](https://github.com/elemaudio/offline-examples/tree/master/convolver)
-* More to come...
 
-## What is Elementary?
-
-> Elementary is a JavaScript framework for writing functional, declarative audio applications with a high performance, native audio engine. Elementary aims to lower the barrier to entry into the audio application space, eliminate the gap between prototyping and production, and bring the functional reactive programming model to DSP.
-
-Find more at [www.elementary.audio](https://www.elementary.audio) or [join us on Discord](https://discord.gg/xSu9JjHwYc).
-
-## Contributing
-
-Have an example that would be a nice add to the list? Please open a pull request! We'd love to include examples from the community.
 
 ## License
 
-The examples here are all made available under the terms of the ISC license, please see [LICENSE.md](LICENSE.md)
-for the full license text.
-
-The Elementary framework itself is licensed separately, please see [www.elementary.audio](https://www.elementary.audio) for
-details.
+[ISC](LICENSE.md)
